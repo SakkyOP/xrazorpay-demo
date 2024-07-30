@@ -1,5 +1,5 @@
 export default function ActivityFeed() {
     return (
-      <div>ActivityFeed</div>
+      <div></div>
     )
   }
