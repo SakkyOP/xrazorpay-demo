@@ -37,7 +37,7 @@ const wrapNumbersInSpan = (text: string) => {
 
 export default function ActivityFeedCard({ date, day, img, text }: CardProps) {
 	return (
-		<div className="flex items-center w-full bg-[#1b2029] font-[Roboto] p-10 gap-4">
+		<div className="flex items-center w-full bg-gradient-to-r from-[#1b2029] to-dark_raisin_black font-[Roboto] p-10 gap-4">
 			<div className="flex w-1/4 flex-col justify-center items-center">
 				<Typography sx={{ textTransform: "uppercase" }} variant="body1">
 					{date}
@@ -46,7 +46,7 @@ export default function ActivityFeedCard({ date, day, img, text }: CardProps) {
 					{day}
 				</Typography>
 			</div>
-			<Divider orientation="vertical" variant="middle" flexItem />
+			<Divider sx={{backgroundColor:"rgba(255,255,255,0.3)"}} orientation="vertical" variant="middle" flexItem />
 			<div className="flex items-center w-3/4 gap-2">
 				<img src={img} alt="" />
 				<Typography variant="subtitle2" sx={{ color: "#58637a" }}>
