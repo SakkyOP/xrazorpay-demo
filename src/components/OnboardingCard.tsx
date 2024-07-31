@@ -14,6 +14,7 @@ import {
 import React from "react";
 
 export type StepProps = {
+	title: string;
 	label: string;
 	description: string;
 	buttons: string[] | null;
@@ -76,8 +77,8 @@ export default function OnboardingCard({ steps }: CardProps) {
 
 	return (
 		<div className="flex w-full min-h-48 bg-dark_raisin_black justify-start p-4 border-t-2 border-t-[#007E3C]">
-			<h1 className="w-2/6 pt-2 pl-2 text-3xl font-[Roboto] font-semibold">
-				Amazon Instant Settlements
+			<h1 className="w-2/6 mr-6 pt-2 pl-2 text-3xl font-[Roboto] font-semibold">
+				{steps[0].title}
 			</h1>
 			<div className="flex w-4/6 flex-col ">
 				<Stepper activeStep={activeStep} orientation="vertical">
@@ -126,7 +127,8 @@ export default function OnboardingCard({ steps }: CardProps) {
 																		backgroundColor:
 																			"#2e353f",
 																		color: "#fff",
-                                    mt: 1, mr: 1 
+																		mt: 1,
+																		mr: 1,
 																	}}
 																	variant="contained">
 																	{button}

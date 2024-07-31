@@ -7,6 +7,7 @@ import OnboardingCard, {StepProps} from "./OnboardingCard";
 const data: StepProps[][] = [
   [
     {
+      title: "Amazon Instant Settlements",
       label: "Let's get you started",
       description: `Complete your application and get instant access to your Amazon payouts`,
       buttons: ["APPLY NOW"],
@@ -14,11 +15,13 @@ const data: StepProps[][] = [
   ],
   [
     {
+      title: "Creating payouts in Live mode",
       label: "Add Balance",
       description: `Add Balance to create payouts in Live mode`,
       buttons: null,
     },
     {
+      title: "Creating payouts in Live mode",
       label: "Create Payout",
       description:
         "There are multiple ways in which you can create the first payout",
