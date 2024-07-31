@@ -8,7 +8,7 @@ import '@fontsource/roboto/700.css';
 
 function App() {
 	return (
-		<div className="flex justify-center w-screen h-screen bg-rich_black text-white">
+		<div className="flex justify-center w-full min-h-screen h-full bg-rich_black text-white">
 			<Sidebar />
 			<Main />
 		</div>

@@ -117,99 +117,120 @@ export default function Sidebar() {
 	const [activeNo, setActiveNo] = useState(0);
 
 	return (
-		<div className="flex flex-col bg-dark_raisin_black w-1/5">
-			<img className="w-3/5 mt-5 ml-5" src={logo} alt="" />
-			<List sx={{ color: "#bdbdbd" }}>
-				{data.map((elem, idx) => {
-					return (
-						<>
-							{idx == 4 ? <Divider color="#2e353f" /> : null}
-							<ListItem key={idx} className="my-4" disablePadding>
-								<ListItemButton
-									sx={{
-										padding: "1px 1rem",
-										backgroundColor:
-											activeNo == idx
-												? "#2e353f"
-												: "inherit",
-									}}
-									onClick={() => setActiveNo(idx)}>
-									{activeNo == idx ? (
-										<div className="absolute -left-1 w-2 h-6 bg-[#ADE9CB] rounded-lg" />
-									) : null}
-									<ListItemIcon
+		<div className="bg-dark_raisin_black w-1/5">
+			<div className="flex flex-col sticky top-0">
+				<img className="w-3/5 mt-5 ml-5" src={logo} alt="" />
+				<List sx={{ color: "#bdbdbd" }}>
+					{data.map((elem, idx) => {
+						return (
+							<>
+								{idx == 4 ? <Divider color="#2e353f" /> : null}
+								<ListItem
+									key={idx}
+									className="my-4"
+									disablePadding>
+									<ListItemButton
 										sx={{
-											minWidth: "0",
-											marginRight: "10px",
-										}}>
-										{elem.badge ? (
-											<Badge
-                        color="primary"
-												variant="dot"
-												anchorOrigin={{
-													vertical: "top",
-													horizontal: "left",
-												}}>
-												<elem.icon
-													fontSize="small"
-													sx={{ color: activeNo == idx? "#ADE9CB" : "#bdbdbd" }}
-												/>
-											</Badge>
-										) : (
-											<elem.icon
-												fontSize="small"
-												sx={{ color: activeNo == idx? "#ADE9CB" : "#bdbdbd" }}
-											/>
-										)}
-									</ListItemIcon>
-									<ListItemText
-                    sx={{ color: activeNo == idx? "#ADE9CB" : "#bdbdbd" }}
-										primary={
-											<>
-												{elem.new ? (
-													<Chip
-														label="NEW"
-														size="small"
+											padding: "1px 1rem",
+											backgroundColor:
+												activeNo == idx
+													? "#2e353f"
+													: "inherit",
+										}}
+										onClick={() => setActiveNo(idx)}>
+										{activeNo == idx ? (
+											<div className="absolute -left-1 w-2 h-6 bg-[#ADE9CB] rounded-lg" />
+										) : null}
+										<ListItemIcon
+											sx={{
+												minWidth: "0",
+												marginRight: "10px",
+											}}>
+											{elem.badge ? (
+												<Badge
+													color="primary"
+													variant="dot"
+													anchorOrigin={{
+														vertical: "top",
+														horizontal: "left",
+													}}>
+													<elem.icon
+														fontSize="small"
 														sx={{
-															backgroundColor:
-																"#007E3C",
-															color: "white",
-															fontSize: "0.8rem",
-															mr: 1,
+															color:
+																activeNo == idx
+																	? "#ADE9CB"
+																	: "#bdbdbd",
 														}}
 													/>
-												) : null}
-												{elem.name}
-											</>
-										}
-									/>
-								</ListItemButton>
-							</ListItem>
-							{elem.sub != null ? (
-								<ListItem className="-mt-6 mb-4 ml-8">
-									{elem.sub.new ? (
-										<Chip
-											label="NEW"
-											size="small"
+												</Badge>
+											) : (
+												<elem.icon
+													fontSize="small"
+													sx={{
+														color:
+															activeNo == idx
+																? "#ADE9CB"
+																: "#bdbdbd",
+													}}
+												/>
+											)}
+										</ListItemIcon>
+										<ListItemText
 											sx={{
-												backgroundColor: "#007E3C",
-												color: "white",
-												fontSize: "0.8rem",
+												color:
+													activeNo == idx
+														? "#ADE9CB"
+														: "#bdbdbd",
 											}}
+											primary={
+												<>
+													{elem.new ? (
+														<Chip
+															label="NEW"
+															size="small"
+															sx={{
+																backgroundColor:
+																	"#007E3C",
+																color: "white",
+																fontSize:
+																	"0.8rem",
+																mr: 1,
+															}}
+														/>
+													) : null}
+													{elem.name}
+												</>
+											}
 										/>
-									) : null}
-									<Button variant="text">
-										<span className="mt-1 capitalize">
-											Invoice Approvals
-										</span>
-										<elem.sub.icon fontSize="small" />
-									</Button>
+									</ListItemButton>
 								</ListItem>
-							) : null}
-						</>
-					);
-				})}
-			</List>
+								{elem.sub != null ? (
+									<ListItem className="-mt-6 mb-4 ml-8">
+										{elem.sub.new ? (
+											<Chip
+												label="NEW"
+												size="small"
+												sx={{
+													backgroundColor: "#007E3C",
+													color: "white",
+													fontSize: "0.8rem",
+												}}
+											/>
+										) : null}
+										<Button variant="text">
+											<span className="mt-1 capitalize">
+												Invoice Approvals
+											</span>
+											<elem.sub.icon fontSize="small" />
+										</Button>
+									</ListItem>
+								) : null}
+							</>
+						);
+					})}
+				</List>
+			</div>
 		</div>
 	);
 }
